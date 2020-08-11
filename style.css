@@ -1,7 +1,65 @@
+/* [global] */
+:root {
+  /* color */
+  --primary-color: #2b81e4;
+  --secondary-color: #eee;
+  --white-color: #fff;
+  --grey-color: #555;
+  --light-grey-color: #777;
+  --test-color: green;
+
+  /* font size */
+  --font-large: 1.6rem;
+  --font-medium: 1.4rem;
+  --font-regular: 1.2rem;
+  --font-basic: 1rem;
+  --font-micro: 0.8rem;
+  /* font weight */
+
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+
+  --weight-basic: 400;
+
+  /* letterspacing */
+  --letterspacing-basic:0.1rem;
+
+  /* size */
+  --size-border-basic-radius : 0.5rem;
+
+/* animation */
+--animation_basic-duration:0.3s;
+
+}
+
+
+/* common styles */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+
+    list-style-type: none;
+
+    text-decoration: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html{
+    font-size: 62.5%;
+}
 
 
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+    background-color: var(--secondary-color);
+
+    margin: 3.5rem;
+    box-shadow: 2rem 4rem 2rem var(--grey-color);
 }
