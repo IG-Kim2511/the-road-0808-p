@@ -62,4 +62,5 @@ html{
 
     margin: 3.5rem;
     box-shadow: 2rem 4rem 2rem var(--grey-color);
+    overflow: hidden;
 }
