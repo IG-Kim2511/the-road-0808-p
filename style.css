@@ -22,34 +22,31 @@
   --weight-basic: 400;
 
   /* letterspacing */
-  --letterspacing-basic:0.1rem;
+  --letterspacing-basic: 0.1rem;
 
   /* size */
-  --size-border-basic-radius : 0.5rem;
+  --size-border-basic-radius: 0.5rem;
 
-/* animation */
---animation_basic-duration:0.3s;
-
+  /* animation */
+  --animation_basic-duration: 0.3s;
 }
-
 
 /* common styles */
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "Open Sans", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
 
-    list-style-type: none;
+  list-style-type: none;
 
-    text-decoration: none;
-    box-sizing: border-box;
-    outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: none;
 }
 
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
-
 
 .center {
   display: flex;
@@ -57,10 +54,49 @@ html{
   align-items: center;
 }
 
-.container{
-    background-color: var(--secondary-color);
+.container {
+  background-color: var(--secondary-color);
+  /* css 28 */
+  margin: 3.5rem;
+  box-shadow: 2rem 4rem 2rem var(--grey-color);
 
-    margin: 3.5rem;
-    box-shadow: 2rem 4rem 2rem var(--grey-color);
-    overflow: hidden;
+  overflow: hidden;
 }
+
+/* [navbar] */
+
+/* [header] */
+
+.header {
+  width: 100%;
+  height: calc(100vh-7rem);
+  background: linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)),
+    url(images/header-bg.jpg) center no-repeat;
+  background-size: cover;
+  position: relative;
+  perspective: 100rem;
+}
+
+.header-text {
+  text-align: center;
+
+  text-transform: uppercase;
+  letter-spacing: var(--letterspacing-basic);
+  text-shadow: 1rem 0.5rem 0.5rem var(--grey-color);
+}
+
+.heading {
+  font-size: 8rem;
+  color: var(--white-color);
+}
+
+.header-paragraph {
+  font-size: 3rem;
+
+  font-weight: 500;
+  color: var(--secondary-color);
+  max-width: 70rem;
+  margin: auto;
+}
+
+/* [logo] */
