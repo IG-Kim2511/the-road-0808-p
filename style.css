@@ -3,9 +3,9 @@
   /* color */
   --primary-color: #2b81e4;
   --secondary-color: #eee;
-  
+
   --white-color: #fff;
-  --white-darker : rgba(238, 238, 238, 0.85);
+  --white-darker: rgba(238, 238, 238, 0.85);
   --grey-color: #555;
   --light-grey-color: #777;
   --test-color: green;
@@ -187,36 +187,36 @@ html {
 }
 
 /* [popular tours] */
-.popular-tours{
+.popular-tours {
   padding: 5rem 0 10rem 0;
 }
-.popular-tours-heading{
-  font-size: 8rem;;
+.popular-tours-heading {
+  font-size: 8rem;
   text-align: center;
   margin-bottom: 8rem;
   color: var(--primary-color);
   text-shadow: 0.1rem 0.5rem 0.5rem var(--grey-color);
 }
-.cards-wrapeer{
+.cards-wrapeer {
   display: flex;
   justify-content: space-evenly;
 }
 
 /* css 4 */
 
-.card{
+.card {
   width: 35rem;
   position: relative;
   /* css 8. js 2 */
   perspective: 150rem;
 }
 /* css 4 */
-.card-image{
+.card-image {
   width: 100%;
   border-radius: var(--size-border-basic-radius);
 }
 
-.front-side{
+.front-side {
   text-align: center;
   background-color: var(--white-color);
   border-radius: 1rem;
@@ -226,18 +226,18 @@ html {
   /* css 8 */
   opacity: 0.9;
   /* js 2 */
-  transition: opacity 1s, transform 1s,box-shadow 1s;
+  transition: opacity 1s, transform 1s, box-shadow 1s;
 }
 
 /* js 2 */
-.change >.front-side{
+.change > .front-side {
   transform: translateZ(-5rem) translateX(3rem);
   box-shadow: 0 2rem 4rem #777;
   opacity: 0.5;
   z-index: 0;
 }
 
-.tour-name{
+.tour-name {
   font-size: 2.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -245,16 +245,16 @@ html {
   /* css 6 */
   position: absolute;
   top: 30%;
-  right:1.5rem;
+  right: 1.5rem;
   color: var(--white-color);
 }
 
-.card-list{
+.card-list {
   width: 80%;
   margin: auto;
   padding: 2rem 0 3rem 0;
 }
-.card-list-item{
+.card-list-item {
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--light-grey-color);
@@ -263,7 +263,7 @@ html {
   padding-bottom: 1.5rem;
 }
 
-.back-side{
+.back-side {
   /* css 6 */
   position: absolute;
   top: 0;
@@ -274,25 +274,25 @@ html {
   box-shadow: 1rem 1rem #777;
   flex-direction: column;
 
-/* css 8 */
-opacity: 0.5;
-transform: translateZ(-5rem) translateX(3rem);
-/* JS 2 */
-transition: opacity 1s , transform 1s, box-shadow  1s;
+  /* css 8 */
+  opacity: 0.5;
+  transform: translateZ(-5rem) translateX(3rem);
+  /* JS 2 */
+  transition: opacity 1s, transform 1s, box-shadow 1s;
 }
-.change> .back-side {
+.change > .back-side {
   transform: translateZ(0) translateX(0);
   box-shadow: 0 0.5rem 2rem #aaa;
   opacity: 0.9;
 }
 
-.tour-price{
+.tour-price {
   font-size: 5rem;
   font-weight: 300;
   color: var(--white-color);
   margin-bottom: 3rem;
 }
-.card-button{
+.card-button {
   color: var(--primary-color);
   background-color: var(--white-color);
   border: none;
@@ -301,7 +301,7 @@ transition: opacity 1s , transform 1s, box-shadow  1s;
   border-radius: var(--size-border-basic-radius);
   cursor: pointer;
 }
-.navigation-button{
+.navigation-button {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
@@ -320,33 +320,31 @@ transition: opacity 1s , transform 1s, box-shadow  1s;
 
 /* [stories] */
 
-.stories{
+.stories {
   padding: 10rem 0;
   position: relative;
 }
-.video-container{
+.video-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   opacity: 0.4;
-  
 }
 
-.bg-video{
+.bg-video {
   /* css 14 */
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.stories-wrapper{
-  
+.stories-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.story-bg{
+.story-bg {
   background-color: var(--white-darker);
   padding: 5rem;
   margin: 5rem;
@@ -354,25 +352,24 @@ transition: opacity 1s , transform 1s, box-shadow  1s;
   box-shadow: 0 2rem 5rem var(--grey-color);
   transform: skewX(20deg);
 }
-.story{
+.story {
   /* css 10 */
   transform: skewX(-20deg);
   display: flex;
 }
-.story-image{
-  width:20rem;
+.story-image {
+  width: 20rem;
   height: 20rem;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 5rem;
-  
 }
 
-.story-text{
+.story-text {
   letter-spacing: var(--letterspacing-basic);
 }
 
-.story-heading{
+.story-heading {
   color: var(--grey-color);
   font-size: 2.5rem;
 
@@ -381,11 +378,137 @@ transition: opacity 1s , transform 1s, box-shadow  1s;
   margin-bottom: 1rem;
 }
 
-.story-paragraph{
+.story-paragraph {
   font-size: 1.8rem;
   color: var(--light-grey-color);
 }
 
-.story-paragraph::first-letter{
+.story-paragraph::first-letter {
   margin-left: 2rem;
+}
+/* [contact] */
+
+.contact {
+  background: url(images/contact-us-bg.png) center no-repeat;
+  background-size: cover;
+
+  padding: 15rem 0 20rem 0;
+  text-align: center;
+
+  /* css 22 */
+  animation: contact-bg 5s infinite;
+}
+
+/* css 22 keyframes */
+@keyframes contact-bg {
+  0% {
+    background-color: cadetblue;
+  }
+  25% {
+    background-color: burlywood;
+  }
+  50% {
+    background-color: aqua;
+  }
+  70% {
+    background-color: yellowgreen;
+  }
+  100% {
+    background-color: darkorange;
+  }
+}
+
+.contact-heading {
+  font-size: 7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: var(--white-color);
+  text-shadow: 0 1rem 2rem #000;
+  margin-bottom: 8rem;
+}
+
+.contact-form {
+  background-color: var(--white-darker);
+  width: 70rem;
+  height: 50rem;
+
+  margin: auto;
+  /* css 16 */
+  flex-direction: column;
+  border-radius: var(--size-border-basic-radius);
+  box-shadow: 0 1rem 3rem #000;
+  padding: 5rem;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  /* css 18 */
+  position: relative;
+}
+.input-groups {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-groups .input-group {
+  width: 48.5%;
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 3rem 1rem 1rem 1rem;
+  background-color: var(--secondary-color);
+  border: 0.1rem solid var(--secondary-color);
+  font-size: 1.4rem;
+  border-radius: var(--size-border-basic-radius);
+  transition: border 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border: 0.2rem solid var(--primary-color);
+}
+.input-group label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--letterspacing-basic);
+  color: var(--grey-color);
+  /* css 18 */
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.form-btn {
+  background-color: var(--light-grey-color);
+  color: var(--white-color);
+
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  letter-spacing: var(--letterspacing-basic);
+  margin-top: 1rem;
+  border-radius: var(--size-border-basic-radius);
+  border: none;
+  cursor: pointer;
+
+  /* css 20 */
+  transition: var(--animation_basic-duration);
+}
+
+/* css 20 */
+.form-btn:hover {
+  background-color: var(--primary-color);
+}
+
+.input-group textarea {
+  max-height: 15rem;
+  max-width: 100%;
+  min-width: 50rem;
 }
