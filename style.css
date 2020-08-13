@@ -47,19 +47,18 @@
 
   font-family: "Open Sans", sans-serif;
 
-  /* T */
+
   list-style-type: none;
-  /* T */
+
   text-decoration: none;
   box-sizing: border-box;
   outline: none;
 }
-/* T */
+
 html {
   font-size: 62.5%;
 }
 
-/* T: center 셀렉터를 따로 만들어서 필요한 부분에 적용함 */
 .center {
   display: flex;
   justify-content: center;
@@ -68,11 +67,11 @@ html {
 
 .container {
   background-color: var(--secondary-color);
-  /* T: CSS 28 */
+  /*  CSS 28 */
   margin: 3.5rem;
-  /* T: 수평,수직, 흐릿함과 확산 , 색상 */
+
   box-shadow: 2rem 4rem 2rem grey;
-  /*T: CSS 2 : 거슬리는 스크롤바를 없앰 */
+  /* CSS 2 : 거슬리는 스크롤바를 없앰 */
   overflow: hidden;
 }
 /* [navbar] */
@@ -88,7 +87,7 @@ html {
 }
 
 .open-navbar-icon {
-  /* T: fixed. z-index */
+
   position: fixed;
   top: 6.5rem;
   left: 6.5rem;
@@ -106,9 +105,7 @@ html {
 
 /* 클릭해서 x모양으로 바뀔 때 navbar  */
 .navbar-wrapper {
-  /* display: none; */
-  /* T: vw: view width, vh: view height */
-  /* ????: 다른곳은 rem쓰다가, 왜 여기에서는 vw, vh를 썼지? */
+
   width: 100vw;
   height: 100vh;
   background-color: var(--test-color);
@@ -119,24 +116,20 @@ html {
   opacity: 0;
 
   z-index: 300;
-  /* opacity: 0.9; */
+
   /* T: CSS 28 : container와 크기 똑같이 맞추기*/
   padding: 3.5rem 5.5rem 3.5rem 3.5rem;
 
   /* CSS 40 */
-  /* bottom에서 올라오는 속도, opacity 적용되는 속도 */
   transition: bottom 0.5s, opacity 0.2s;
 }
 
 /* CSS 38. JS 6 */
-/* navbar-icon클릭할때 .change추가 */
 .change .navbar-wrapper {
-  /* position..위치,opacity */
   bottom: 0;
   opacity: 1;
 
   /* CSS 40 */
-  /* bottom에서 올라오는 속도, opacity 적용되는 속도, 화면표시되기까지 delay */
   transition: bottom 0.5s, opacity 0.2s 0.25s;
 }
 
@@ -144,12 +137,10 @@ html {
   width: 100%;
   height: 100%;
 
-  /* T: 검은색gradient에서 opacity만 조절 */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
     url(images/navbar-bg.jpg) center no-repeat;
   /* CSS 30 ,32*/
   position: relative;
-  /*????: T: navbar-link가 top:-100% 로 내려가있는상태라서, 밑의 hover효과를 다 가려버리는 버그 고쳐줌 */
   overflow-y: hidden;
 }
 
@@ -165,7 +156,6 @@ html {
   position: absolute;
 }
 /* CSS 32 */
-/* T: 40deg */
 .line-1 {
   transform: rotate(40deg);
 }
@@ -176,7 +166,6 @@ html {
 .nav-list {
   /* CSS 34 :T: 컨테이너 크기만큼의 height. */
   height: 100%;
-  /* T: */
   display: flex;
 }
 
@@ -234,33 +223,24 @@ html {
 /*[header] */
 .header {
   width: 100%;
-  /* top, bottom 똑같은 넓이 공백넣기 */
-  /*T: 100vh = 100% vh  */
-  /* T: 7rem은 top+bottom 의 공백을 합친 값 */
+
   height: calc(100vh - 7rem);
-  /* T: rgba : rgb + opacity */
   background: linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)),
     url(images/header-bg.jpg) center no-repeat;
-  /* T: */
   background-size: cover;
   position: relative;
   /* T: css 2 */
-  /* T : perspective : 원근법
-숫자가 적을수록 3d이펙트가 강함.
-보통으로 보이게 하기위해 대충 100rem 넣음.
-  */
+
   perspective: 100rem;
 }
 
 .header-text {
   text-align: center;
-  /* T */
+
   text-transform: uppercase;
-  /* T */
+
   letter-spacing: 0.1rem;
-  /* T : 오른쪽, 아래, opacity, 색
-  https://developer.mozilla.org/ko/docs/Web/CSS/text-shadow  
-  */
+
   text-shadow: 0.5rem 0.5rem 0.5rem #000;
 }
 .heading {
@@ -269,11 +249,11 @@ html {
 }
 .header-paragraph {
   font-size: 3rem;
-  /* T */
+
   font-weight: 500;
   color: var(--secondary-color);
   max-width: 70rem;
-  /* T */
+
   margin: auto;
 }
 
@@ -288,7 +268,7 @@ html {
 }
 .logo h1 span {
   font-size: 2rem;
-  /* T */
+
   font-weight: 900;
   color: var(--primary-color);
   text-transform: uppercase;
@@ -502,7 +482,7 @@ transform으로 앞으로 빼오는 방식
   border: none;
   font-size: 2.5rem;
   padding: 1rem 2rem;
-  /* T */
+
   letter-spacing: 2rem;
   border-radius: 5rem;
   cursor: pointer;
@@ -519,7 +499,7 @@ transform으로 앞으로 빼오는 방식
   border: none;
   font-size: 1.5rem;
   font-weight: 600;
-  /* T */
+
   text-transform: uppercase;
   letter-spacing: 2rem;
   cursor: pointer;
@@ -546,7 +526,6 @@ transform으로 앞으로 빼오는 방식
   /* CSS 14 */
   width: 100%;
   height: 100%;
-  /* T: */
   object-fit: cover;
 }
 
@@ -566,7 +545,7 @@ transform으로 앞으로 빼오는 방식
   transform: skewX(20deg);
 }
 .story {
-  /* CSS 10 : 사진만 원래모습으로 보이게 함 */
+  /* CSS 10  */
   transform: skewX(-20deg);
   display: flex;
 }
@@ -574,12 +553,10 @@ transform으로 앞으로 빼오는 방식
   width: 20rem;
   height: 20rem;
   border-radius: 50%;
-  /* T  : 사진 선명하게*/
   object-fit: cover;
   margin-right: 5rem;
 }
 .story-text {
-  /* T: */
   letter-spacing: 0.1rem;
 }
 .story-heading {
@@ -593,7 +570,6 @@ transform으로 앞으로 빼오는 방식
   font-size: 1.8rem;
   color: var(--light-grey-color);
 }
-/* T : */
 .story-paragraph:first-letter {
   margin-left: 2rem;
 }
@@ -602,7 +578,6 @@ transform으로 앞으로 빼오는 방식
 .contact {
   padding: 15rem 0 20rem 0;
   text-align: center;
-  /* T: background: url */
   background: url(images/contact-us-bg.png) center no-repeat;
   background-size: cover;
   /* CSS 22 keyframes*/
@@ -669,7 +644,6 @@ transform으로 앞으로 빼오는 방식
 }
 .input-group input,
 .input-group textarea {
-  /* T: 글자 넣는 칸 안의  padding */
   padding: 3rem 1rem 1rem 1rem;
   background-color: var(--secondary-color);
   border: 0.1rem solid var(--secondary-color);
@@ -679,7 +653,7 @@ transform으로 앞으로 빼오는 방식
   border-radius: 1rem;
   transition: border 0.3s;
 }
-/* T: focus: 클릭했을때 표시됨 */
+
 .input-group input:focus,
 .input-group textarea:focus {
   border: 0.1rem solid var(--primary-color);
@@ -714,7 +688,6 @@ transform으로 앞으로 빼오는 방식
   background-color: var(--primary-color);
 }
 
-/* T: 박스가 너무 커져서 화면 밖으로 못나가게 */
 .input-group textarea {
   max-height: 15rem;
   max-width: 100%;
@@ -771,7 +744,6 @@ transform으로 앞으로 빼오는 방식
     left: 50%;
     transform: translate(-50%, -50%);
 
-    /* T: 풍선보다 항상 앞에 보이게 */
     z-index: 10;
   }
   .heading {
@@ -794,7 +766,7 @@ transform으로 앞으로 빼오는 방식
     padding: 0.3rem 2rem;
     margin: 0 1rem;
   }
-  /* T: 전체 font크기 낮춰서 간단하게 해결 */
+  
   html {
     font-size: 50%;
   }
