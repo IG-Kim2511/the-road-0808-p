@@ -1,58 +1,65 @@
-/* [global] */
+/*[Global] */
 :root {
   /* color */
   --primary-color: #2b81e4;
   --secondary-color: #eee;
-
   --white-color: #fff;
-  --white-darker: rgba(238, 238, 238, 0.85);
   --grey-color: #555;
   --light-grey-color: #777;
   --test-color: green;
 
   /* font size */
+  /* 기본 1rem = 16px */
   --font-large: 1.6rem;
   --font-medium: 1.4rem;
   --font-regular: 1.2rem;
   --font-basic: 1rem;
   --font-micro: 0.8rem;
-  /* font weight */
+
+  /* Font weight */
+  /* 기본 400 */
 
   --weight-bold: 700;
+
   --weight-semi-bold: 600;
 
   --weight-basic: 400;
 
   /* letterspacing */
+  /* 기본 0.1rem */
   --letterspacing-basic: 0.1rem;
+  --letterspacing-test: 2rem;
 
-  /* size */
+  /* Size */
   --size-border-basic-radius: 0.5rem;
+  --size-border-test-radius: 1rem;
 
   /* animation */
   --animation_basic-duration: 0.3s;
+  --animation_test-duration: 1s;
 }
 
-/* common styles */
+/* COMMON STYLES */
+
 * {
   margin: 0;
   padding: 0;
+
   font-family: "Open Sans", sans-serif;
 
+  /* T */
   list-style-type: none;
-
+  /* T */
   text-decoration: none;
   box-sizing: border-box;
   outline: none;
-  
 }
-
-
-
+/* T */
 html {
   font-size: 62.5%;
 }
 
+/* T: center 셀렉터를 따로 만들어서 필요한 부분에 적용함 */
 .center {
   display: flex;
   justify-content: center;
@@ -61,129 +68,216 @@ html {
 
 .container {
   background-color: var(--secondary-color);
-  /* css 28 */
+  /* T: CSS 28 */
   margin: 3.5rem;
-  box-shadow: 2rem 4rem 2rem var(--grey-color);
-
+  /* T: 수평,수직, 흐릿함과 확산 , 색상 */
+  box-shadow: 2rem 4rem 2rem grey;
+  /*T: CSS 2 : 거슬리는 스크롤바를 없앰 */
   overflow: hidden;
 }
-
 /* [navbar] */
 
-.navbar-icon{
-  width:5.5rem;
-  height:5.5rem;
+.navbar-icon {
+  width: 5.5rem;
+  height: 5.5rem;
   background-color: var(--white-color);
   border-radius: 50%;
   cursor: pointer;
-  /* css 26 */
+  /* CSS 26 . T: navbar의 div막대 3개가 row로 겹쳐있는걸 column으로 바꿈*/
   flex-direction: column;
 }
-.open-navbar-icon{
+
+.open-navbar-icon {
+  /* T: fixed. z-index */
   position: fixed;
   top: 6.5rem;
   left: 6.5rem;
   z-index: 200;
 }
-/* css 26 */
-.navbar-icon .line{
+
+/* CSS 26 */
+.navbar-icon .line {
   height: 0.5rem;
   width: 3.5rem;
 }
-
-.open-navbar-icon .line{
-  margin:0.3rem 0;
+.open-navbar-icon .line {
+  margin: 0.3rem 0;
 }
 
-.navbar-wrapper{
+/* 클릭해서 x모양으로 바뀔 때 navbar  */
+.navbar-wrapper {
+  /* display: none; */
+  /* T: vw: view width, vh: view height */
+  /* ????: 다른곳은 rem쓰다가, 왜 여기에서는 vw, vh를 썼지? */
   width: 100vw;
   height: 100vh;
-  background-color: var(--primary-color);
+  background-color: var(--test-color);
   position: fixed;
   left: 0;
-  /* css 38 .JS 6 */
-  bottom: 100%;
+  /* CSS 38. JS 6 */
+  bottom: -100%;
   opacity: 0;
 
   z-index: 300;
+  /* opacity: 0.9; */
+  /* T: CSS 28 : container와 크기 똑같이 맞추기*/
   padding: 3.5rem 5.5rem 3.5rem 3.5rem;
 
-  /* css 40 */
+  /* CSS 40 */
+  /* bottom에서 올라오는 속도, opacity 적용되는 속도 */
   transition: bottom 0.5s, opacity 0.2s;
 }
 
-/* css 38. js 6 */
-.change .navbar-wrapper{
-  bottom: -10%;
+/* CSS 38. JS 6 */
+/* navbar-icon클릭할때 .change추가 */
+.change .navbar-wrapper {
+  /* position..위치,opacity */
+  bottom: 0;
   opacity: 1;
-  /* css 40 */
-  transition: bottom 0.5s; opacity 0.2s 0.25s;
+
+  /* CSS 40 */
+  /* bottom에서 올라오는 속도, opacity 적용되는 속도, 화면표시되기까지 delay */
+  transition: bottom 0.5s, opacity 0.2s 0.25s;
 }
 
-.navbar{
+.navbar {
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(images/navbar-bg.jpg) center no-repeat;
+
+  /* T: 검은색gradient에서 opacity만 조절 */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url(images/navbar-bg.jpg) center no-repeat;
+  /* CSS 30 ,32*/
   position: relative;
+  /*????: T: navbar-link가 top:-100% 로 내려가있는상태라서, 밑의 hover효과를 다 가려버리는 버그 고쳐줌 */
   overflow-y: hidden;
 }
 
-.close-navbar-icon{
-  /* css 30 */
+.close-navbar-icon {
+  /* CSS 30 */
   position: absolute;
   top: 3rem;
-  left:3rem;
+  left: 3rem;
   z-index: 300;
 }
+/* CSS 32 */
+.close-navbar-icon .line {
+  position: absolute;
+}
+/* CSS 32 */
+/* T: 40deg */
+.line-1 {
+  transform: rotate(40deg);
+}
+/* CSS 32 */
+.line-2 {
+  transform: rotate(-40deg);
+}
+.nav-list {
+  /* CSS 34 :T: 컨테이너 크기만큼의 height. */
+  height: 100%;
+  /* T: */
+  display: flex;
+}
 
+.nav-link {
+  /* CSS 34 */
+  width: 100%;
+  /*css 34 : 글자크기만큼의 height */
+  height: 100%;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white-color);
+  text-transform: uppercase;
 
+  opacity: 0.8;
 
+  /* CSS 38. JS 6 */
+  position: relative;
+  top: -100%;
+  /* CSS 36 */
+  transition: all 0.3s;
+}
+/* CSS 38. JS 6 */
+.change .nav-link {
+  top: 0;
+}
 
+/* CSS 36 */
+.nav-link:hover {
+  opacity: 1;
+  color: purple;
+}
 
+/* CSS 40 */
+/*T: top에서 내려오는 속도 (duration) + delay, opacity 적용되는 속도, color delay*/
+.change .nav-link:nth-child(1) {
+  transition: top 1s 0.4s, opacity 0.3s, color 0.3s;
+}
 
+.change .nav-link:nth-child(2) {
+  transition: top 1s 0.6s, opacity 0.3s, color 0.3s;
+}
 
+.change .nav-link:nth-child(3) {
+  transition: top 1s 0.8s, opacity 0.3s, color 0.3s;
+}
 
+.change .nav-link:nth-child(4) {
+  transition: top 1s 1s, opacity 0.3s, color 0.3s;
+}
 
+.change .nav-link:nth-child(5) {
+  transition: top 1s 1.2s, opacity 0.3s, color 0.3s;
+}
 
-
-
-
-/* [header] */
-
+/*[header] */
 .header {
   width: 100%;
-  height: calc(100vh-7rem);
+  /* top, bottom 똑같은 넓이 공백넣기 */
+  /*T: 100vh = 100% vh  */
+  /* T: 7rem은 top+bottom 의 공백을 합친 값 */
+  height: calc(100vh - 7rem);
+  /* T: rgba : rgb + opacity */
   background: linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)),
     url(images/header-bg.jpg) center no-repeat;
+  /* T: */
   background-size: cover;
   position: relative;
-  /* css 2 */
+  /* T: css 2 */
+  /* T : perspective : 원근법
+숫자가 적을수록 3d이펙트가 강함.
+보통으로 보이게 하기위해 대충 100rem 넣음.
+  */
   perspective: 100rem;
 }
 
 .header-text {
   text-align: center;
-
+  /* T */
   text-transform: uppercase;
-  letter-spacing: var(--letterspacing-basic);
-  text-shadow: 1rem 0.5rem 0.5rem var(--grey-color);
+  /* T */
+  letter-spacing: 0.1rem;
+  /* T : 오른쪽, 아래, opacity, 색
+  https://developer.mozilla.org/ko/docs/Web/CSS/text-shadow  
+  */
+  text-shadow: 0.5rem 0.5rem 0.5rem #000;
 }
-
 .heading {
   font-size: 8rem;
   color: var(--white-color);
 }
-
 .header-paragraph {
   font-size: 3rem;
-
+  /* T */
   font-weight: 500;
   color: var(--secondary-color);
   max-width: 70rem;
+  /* T */
   margin: auto;
 }
 
-/* [logo] */
+/* <logo> */
 .logo {
   position: absolute;
   top: 4rem;
@@ -194,6 +288,7 @@ html {
 }
 .logo h1 span {
   font-size: 2rem;
+  /* T */
   font-weight: 900;
   color: var(--primary-color);
   text-transform: uppercase;
@@ -204,7 +299,11 @@ html {
   border-radius: 50%;
 }
 
-.logo h1 span:nth-child(1) {
+/* T: keyframes
+https://iankim2511.tistory.com/57
+ */
+
+ .logo h1 span:nth-child(1) {
   animation: drop-letters 2s 0.1s infinite;
 }
 .logo h1 span:nth-child(2) {
@@ -225,22 +324,29 @@ html {
 .logo h1 span:nth-child(7) {
   animation: drop-letters 2s 0.7s infinite;
 }
-
 @keyframes drop-letters {
   0% {
     transform: translateY(0);
   }
+  10% {
+    transform: translateY(0);
+  }
   20% {
-    transform: translateY(-100%);
+    transform: translatey(-100%);
+  }
+  30% {
+    transform: translateY(0);
   }
   100% {
     transform: translateY(0);
   }
 }
 
-/* css 2 */
+/* T: CSS 2 */
+
 .header-image {
   width: 35%;
+  /* T: */
   animation: image-float 10s infinite;
 }
 
@@ -248,26 +354,31 @@ html {
   0% {
     transform: translateZ(40rem);
     opacity: 1;
+
   }
   40% {
     transform: translateZ(-500rem) translateX(150rem);
-    opacity: 0.5;
+    opacity: 0.2;
+   
   }
   70% {
     transform: translateZ(-1500rem) translateX(800rem);
-    opacity: 0.2;
+    opacity: 0.6;
+
   }
   80% {
     transform-origin: translatez(40rem);
     opacity: 0.8;
+
   }
   100% {
     transform: translateZ(40rem);
-    opacity: 1;
+    opacity: 0.5;
+ 
   }
 }
 
-/* [popular tours] */
+/* <Popular tours> */
 .popular-tours {
   padding: 5rem 0 10rem 0;
 }
@@ -276,41 +387,45 @@ html {
   text-align: center;
   margin-bottom: 8rem;
   color: var(--primary-color);
-  text-shadow: 0.1rem 0.5rem 0.5rem var(--grey-color);
+  text-shadow: 0.5rem 0.5rem 0.5rem var(--grey-color);
 }
-.cards-wrapeer {
+
+.cards-wrapper {
   display: flex;
   justify-content: space-evenly;
 }
-
-/* css 4 */
-
+/* css 4: card, card-image의 width 를 함께 조절해서 flex사이의 빈칸 완성 */
 .card {
   width: 35rem;
   position: relative;
-  /* css 8. js 2 */
+  /* CSS 8 . JS 2*/
+  /* T알고리즘 : perspective : 원근법으로 card front-back side toggle 코딩 시작
+숫자가 적을수록 3d이펙트가 강함.
+보통으로 보이게 하기위해 대충 150rem 넣고 시작 
+transform으로 앞으로 빼오는 방식
+*/
   perspective: 150rem;
 }
 /* css 4 */
 .card-image {
   width: 100%;
-  border-radius: var(--size-border-basic-radius);
+  border-radius: 1rem;
 }
 
 .front-side {
   text-align: center;
   background-color: var(--white-color);
   border-radius: 1rem;
-  /* css 6 */
+  /* CSS 6 */
   position: relative;
   z-index: 10;
-  /* css 8 */
+  /* CSS 8 */
   opacity: 0.9;
-  /* js 2 */
+  /* T: JS 2 */
   transition: opacity 1s, transform 1s, box-shadow 1s;
 }
 
-/* js 2 */
+/* JS 2 */
 .change > .front-side {
   transform: translateZ(-5rem) translateX(3rem);
   box-shadow: 0 2rem 4rem #777;
@@ -322,8 +437,9 @@ html {
   font-size: 2.5rem;
   font-weight: 700;
   text-transform: uppercase;
-  text-shadow: 0 0 2rem var(--grey-color);
-  /* css 6 */
+  text-shadow: 0 0 2rem blue;
+  /* CSS 6 : 글자를 absolute줘서 위로 올려서 사진안에 넣음
+  */
   position: absolute;
   top: 30%;
   right: 1.5rem;
@@ -332,6 +448,7 @@ html {
 
 .card-list {
   width: 80%;
+  /* T: 가운데 정렬 */
   margin: auto;
   padding: 2rem 0 3rem 0;
 }
@@ -340,27 +457,32 @@ html {
   font-weight: 500;
   color: var(--light-grey-color);
   margin: 2rem 0;
+  /* T :border*/
   border-bottom: 0.1rem solid var(--primary-color);
   padding-bottom: 1.5rem;
 }
 
 .back-side {
-  /* css 6 */
+  /* CSS 6 */
   position: absolute;
+  /* ???? top:0 */
   top: 0;
   background-color: var(--primary-color);
   width: 100%;
   height: 100%;
-  border-radius: var(--size-border-basic-radius);
+  border-radius: 1rem;
   box-shadow: 1rem 1rem #777;
   flex-direction: column;
-
-  /* css 8 */
+  /* CSS 8 */
   opacity: 0.5;
+  /* CSS 8 */
   transform: translateZ(-5rem) translateX(3rem);
-  /* JS 2 */
+  /* T: JS 2 */
   transition: opacity 1s, transform 1s, box-shadow 1s;
 }
+
+/* JS 2 <pupular tours> 버튼누르면 앞뒤 화면전환 */
+
 .change > .back-side {
   transform: translateZ(0) translateX(0);
   box-shadow: 0 0.5rem 2rem #aaa;
@@ -373,50 +495,58 @@ html {
   color: var(--white-color);
   margin-bottom: 3rem;
 }
+
 .card-button {
   color: var(--primary-color);
   background-color: var(--white-color);
   border: none;
   font-size: 2.5rem;
+  padding: 1rem 2rem;
+  /* T */
   letter-spacing: 2rem;
-  border-radius: var(--size-border-basic-radius);
+  border-radius: 5rem;
   cursor: pointer;
 }
+
 .navigation-button {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
-  background-color: var(--white-color);
+  background-color: rega(255, 255, 255, 0.8);
   padding: 0.5rem;
   color: var(--light-grey-color);
+  border-radius: 1rem;
   border: none;
-  border-radius: var(--size-border-basic-radius);
   font-size: 1.5rem;
   font-weight: 600;
-
+  /* T */
   text-transform: uppercase;
-  letter-spacing: var(--letterspacing-basic);
+  letter-spacing: 2rem;
   cursor: pointer;
 }
-
-/* [stories] */
-
+/* <Stories> */
 .stories {
   padding: 10rem 0;
+  /* CSS 12 */
   position: relative;
 }
+
 .video-container {
+  /* CSS 12 */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  /* CSS 14 : container의 width도 100%설정 */
+  height: 100%;
   opacity: 0.4;
 }
 
 .bg-video {
-  /* css 14 */
+  /* CSS 14 */
   width: 100%;
   height: 100%;
+  /* T: */
   object-fit: cover;
 }
 
@@ -425,16 +555,18 @@ html {
   flex-direction: column;
   align-items: center;
 }
+
 .story-bg {
-  background-color: var(--white-darker);
+  background-color: rgba(238, 238, 238, 0.85);
   padding: 5rem;
   margin: 5rem;
   width: 70%;
-  box-shadow: 0 2rem 5rem var(--grey-color);
+  box-shadow: 0 2rem 5rem rgba(51, 51, 51, 0.4);
+  /* CSS 10 : T : skewX*/
   transform: skewX(20deg);
 }
 .story {
-  /* css 10 */
+  /* CSS 10 : 사진만 원래모습으로 보이게 함 */
   transform: skewX(-20deg);
   display: flex;
 }
@@ -442,20 +574,18 @@ html {
   width: 20rem;
   height: 20rem;
   border-radius: 50%;
+  /* T  : 사진 선명하게*/
   object-fit: cover;
   margin-right: 5rem;
 }
-
 .story-text {
-  letter-spacing: var(--letterspacing-basic);
+  /* T: */
+  letter-spacing: 0.1rem;
 }
-
 .story-heading {
-  color: var(--grey-color);
   font-size: 2.5rem;
-
   text-transform: uppercase;
-
+  color: var(--grey-color);
   margin-bottom: 1rem;
 }
 
@@ -463,24 +593,24 @@ html {
   font-size: 1.8rem;
   color: var(--light-grey-color);
 }
-
-.story-paragraph::first-letter {
+/* T : */
+.story-paragraph:first-letter {
   margin-left: 2rem;
 }
-/* [contact] */
 
+/* <Contact> */
 .contact {
-  background: url(images/contact-us-bg.png) center no-repeat;
-  background-size: cover;
-
   padding: 15rem 0 20rem 0;
   text-align: center;
-
-  /* css 22 */
+  /* T: background: url */
+  background: url(images/contact-us-bg.png) center no-repeat;
+  background-size: cover;
+  /* CSS 22 keyframes*/
   animation: contact-bg 5s infinite;
 }
 
-/* css 22 keyframes */
+/* CSS 22 keyframes*/
+
 @keyframes contact-bg {
   0% {
     background-color: cadetblue;
@@ -508,16 +638,15 @@ html {
   text-shadow: 0 1rem 2rem #000;
   margin-bottom: 8rem;
 }
-
 .contact-form {
-  background-color: var(--white-darker);
   width: 70rem;
   height: 50rem;
-
+  background-color: rgba(255, 255, 255, 0.95);
+  /* T: 수평 정렬+*/
   margin: auto;
-  /* css 16 */
+  /* CSS 16 */
   flex-direction: column;
-  border-radius: var(--size-border-basic-radius);
+  border-radius: 1rem;
   box-shadow: 0 1rem 3rem #000;
   padding: 5rem;
 }
@@ -527,7 +656,7 @@ html {
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
-  /* css 18 */
+  /* CSS 18 */
   position: relative;
 }
 .input-groups {
@@ -535,90 +664,199 @@ html {
   display: flex;
   justify-content: space-between;
 }
-
 .input-groups .input-group {
   width: 48.5%;
 }
-
 .input-group input,
 .input-group textarea {
+  /* T: 글자 넣는 칸 안의  padding */
   padding: 3rem 1rem 1rem 1rem;
   background-color: var(--secondary-color);
   border: 0.1rem solid var(--secondary-color);
   font-size: 1.4rem;
-  border-radius: var(--size-border-basic-radius);
+  color: var(--light-grey-color);
+  letter-spacing: 0.1rem;
+  border-radius: 1rem;
   transition: border 0.3s;
 }
-
+/* T: focus: 클릭했을때 표시됨 */
 .input-group input:focus,
 .input-group textarea:focus {
-  border: 0.2rem solid var(--primary-color);
+  border: 0.1rem solid var(--primary-color);
 }
 .input-group label {
   font-size: 1.2rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: var(--letterspacing-basic);
+  letter-spacing: 0.1rem;
   color: var(--grey-color);
-  /* css 18 */
+  /* CSS 18 */
   position: absolute;
   top: 1rem;
   left: 1rem;
 }
-
 .form-btn {
-  background-color: var(--light-grey-color);
-  color: var(--white-color);
-
   width: 100%;
   padding: 1rem;
   font-size: 1.6rem;
-  letter-spacing: var(--letterspacing-basic);
+  letter-spacing: 0.1rem;
   margin-top: 1rem;
-  border-radius: var(--size-border-basic-radius);
+  background-color: var(--light-grey-color);
+  color: var(--white-color);
+  border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-
-  /* css 20 */
-  transition: var(--animation_basic-duration);
+  /* CSS 20 */
+  transition: background-color var(--animation_basic-duration);
 }
-
-/* css 20 */
+/* CSS 20 */
 .form-btn:hover {
   background-color: var(--primary-color);
 }
 
+/* T: 박스가 너무 커져서 화면 밖으로 못나가게 */
 .input-group textarea {
   max-height: 15rem;
   max-width: 100%;
   min-width: 50rem;
 }
 
-/* [footer] */
-.footer{
+/* [Footer] */
+.footer {
   background-color: var(--grey-color);
   padding: 4rem 0 2rem 0;
 }
-.footer-list{
+.footer-list {
+  display: flex;
+  justify-content: center;
+}
+.footer-link {
   font-size: 2rem;
   color: var(--white-color);
   margin: 0 2rem;
   background-color: var(--grey-color);
   padding: 0.3rem 3rem;
-  /* css 24 */
+  letter-spacing: 0.5rem;
+  /* CSS 24 */
   transition: all 0.2s;
 }
-
 .footer-link:hover {
   /* CSS 24 */
   transform: rotate(-10deg);
   box-shadow: 0 2rem 3rem #000;
 }
 
-.footer-paragraph{
+.footer-paragraph {
   text-align: center;
   font-size: 1.5rem;
-  color:var(--secondary-color);
-  letter-spacing: var(--letterspacing-basic);
+  color: var(--secondary-color);
+  letter-spacing: 0.2rem;
   margin-top: 5rem;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 1000px) {
+  .nav-list {
+    flex-direction: column;
+  }
+  .nav-link {
+    flex-grow: 1;
+  }
+
+  .header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* T: 풍선보다 항상 앞에 보이게 */
+    z-index: 10;
+  }
+  .heading {
+    font-size: 6rem;
+  }
+  .story-bg {
+    transform: skewX(0);
+  }
+  .story {
+    transform: skewX(0);
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .story-image {
+    margin-bottom: 3rem;
+  }
+
+  .footer-link {
+    padding: 0.3rem 2rem;
+    margin: 0 1rem;
+  }
+  /* T: 전체 font크기 낮춰서 간단하게 해결 */
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 800px) {
+  .header-paragraph {
+    display: none;
+  }
+  .popular-tours-heading {
+    font-size: 5rem;
+  }
+  .contact-form {
+    width: 90%;
+  }
+  .footer-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-link {
+    margin: 1rem 0;
+  }
+
+  .cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    margin: 1rem 0;
+  }
+  .story-bg {
+    width: 85%;
+  }
+}
+@media (max-width: 650px) {
+  .container {
+    margin: 0;
+  }
+  .open-navbar-icon {
+    top: 2.5rem;
+    left: 2.5rem;
+  }
+  .navbar-wrapper {
+    padding: 0;
+  }
+  .close-navbar-icon {
+    right: 4rem;
+  }
+  .header {
+    height: 100vh;
+  }
+  .contact-heading {
+    padding: 2rem;
+    height: 40rem;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 45%;
+  }
+  .contact-heading {
+    margin-bottom: -20rem;
+  }
 }
