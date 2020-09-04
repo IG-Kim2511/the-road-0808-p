@@ -9,7 +9,6 @@
   --test-color: green;
 
   /* font size */
-  /* 기본 1rem = 16px */
   --font-large: 1.6rem;
   --font-medium: 1.4rem;
   --font-regular: 1.2rem;
@@ -17,7 +16,6 @@
   --font-micro: 0.8rem;
 
   /* Font weight */
-  /* 기본 400 */
 
   --weight-bold: 700;
 
@@ -26,7 +24,7 @@
   --weight-basic: 400;
 
   /* letterspacing */
-  /* 기본 0.1rem */
+
   --letterspacing-basic: 0.1rem;
   --letterspacing-test: 2rem;
 
@@ -46,7 +44,6 @@
   padding: 0;
 
   font-family: "Open Sans", sans-serif;
-
 
   list-style-type: none;
 
@@ -71,7 +68,7 @@ html {
   margin: 3.5rem;
 
   box-shadow: 2rem 4rem 2rem grey;
-  /* CSS 2 : 거슬리는 스크롤바를 없앰 */
+  /* CSS 2 :  */
   overflow: hidden;
 }
 /* [navbar] */
@@ -82,12 +79,11 @@ html {
   background-color: var(--white-color);
   border-radius: 50%;
   cursor: pointer;
-  /* CSS 26 . T: navbar의 div막대 3개가 row로 겹쳐있는걸 column으로 바꿈*/
+  /* CSS 26*/
   flex-direction: column;
 }
 
 .open-navbar-icon {
-
   position: fixed;
   top: 6.5rem;
   left: 6.5rem;
@@ -103,9 +99,8 @@ html {
   margin: 0.3rem 0;
 }
 
-/* 클릭해서 x모양으로 바뀔 때 navbar  */
+/*navbar-wrapper  */
 .navbar-wrapper {
-
   width: 100vw;
   height: 100vh;
   background-color: var(--test-color);
@@ -117,7 +112,7 @@ html {
 
   z-index: 300;
 
-  /* T: CSS 28 : container와 크기 똑같이 맞추기*/
+  /*  CSS 28 */
   padding: 3.5rem 5.5rem 3.5rem 3.5rem;
 
   /* CSS 40 */
@@ -164,7 +159,7 @@ html {
   transform: rotate(-40deg);
 }
 .nav-list {
-  /* CSS 34 :T: 컨테이너 크기만큼의 height. */
+  /* CSS 34  */
   height: 100%;
   display: flex;
 }
@@ -199,7 +194,6 @@ html {
 }
 
 /* CSS 40 */
-/*T: top에서 내려오는 속도 (duration) + delay, opacity 적용되는 속도, color delay*/
 .change .nav-link:nth-child(1) {
   transition: top 1s 0.4s, opacity 0.3s, color 0.3s;
 }
@@ -279,11 +273,9 @@ html {
   border-radius: 50%;
 }
 
-/* T: keyframes
-https://iankim2511.tistory.com/57
- */
+/* T: keyframes */
 
- .logo h1 span:nth-child(1) {
+.logo h1 span:nth-child(1) {
   animation: drop-letters 2s 0.1s infinite;
 }
 .logo h1 span:nth-child(2) {
@@ -334,27 +326,22 @@ https://iankim2511.tistory.com/57
   0% {
     transform: translateZ(40rem);
     opacity: 1;
-
   }
   40% {
     transform: translateZ(-500rem) translateX(150rem);
     opacity: 0.2;
-   
   }
   70% {
     transform: translateZ(-1500rem) translateX(800rem);
     opacity: 0.6;
-
   }
   80% {
     transform-origin: translatez(40rem);
     opacity: 0.8;
-
   }
   100% {
     transform: translateZ(40rem);
     opacity: 0.5;
- 
   }
 }
 
@@ -374,16 +361,12 @@ https://iankim2511.tistory.com/57
   display: flex;
   justify-content: space-evenly;
 }
-/* css 4: card, card-image의 width 를 함께 조절해서 flex사이의 빈칸 완성 */
+/* css 4:  */
 .card {
   width: 35rem;
   position: relative;
   /* CSS 8 . JS 2*/
-  /* T알고리즘 : perspective : 원근법으로 card front-back side toggle 코딩 시작
-숫자가 적을수록 3d이펙트가 강함.
-보통으로 보이게 하기위해 대충 150rem 넣고 시작 
-transform으로 앞으로 빼오는 방식
-*/
+
   perspective: 150rem;
 }
 /* css 4 */
@@ -418,8 +401,7 @@ transform으로 앞으로 빼오는 방식
   font-weight: 700;
   text-transform: uppercase;
   text-shadow: 0 0 2rem blue;
-  /* CSS 6 : 글자를 absolute줘서 위로 올려서 사진안에 넣음
-  */
+  /* CSS 6   */
   position: absolute;
   top: 30%;
   right: 1.5rem;
@@ -461,7 +443,7 @@ transform으로 앞으로 빼오는 방식
   transition: opacity 1s, transform 1s, box-shadow 1s;
 }
 
-/* JS 2 <pupular tours> 버튼누르면 앞뒤 화면전환 */
+/* JS 2 <pupular tours>  */
 
 .change > .back-side {
   transform: translateZ(0) translateX(0);
@@ -766,7 +748,7 @@ transform으로 앞으로 빼오는 방식
     padding: 0.3rem 2rem;
     margin: 0 1rem;
   }
-  
+
   html {
     font-size: 50%;
   }
