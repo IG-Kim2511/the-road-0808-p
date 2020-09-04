@@ -1,4 +1,7 @@
 # the-road-0808-p
+
+![I numberd the codes (1)](https://user-images.githubusercontent.com/59094101/92276609-54f92600-eebf-11ea-9464-34b865e53142.jpg)
+![I numberd the codes (2)](https://user-images.githubusercontent.com/59094101/92276610-5591bc80-eebf-11ea-8ff1-3bc006895c2b.jpg)
  
 ![이미지 2020-08-13 16 34 33](https://user-images.githubusercontent.com/59094101/90185545-e542c000-dd84-11ea-8e37-82159307ddee.jpg)
  
