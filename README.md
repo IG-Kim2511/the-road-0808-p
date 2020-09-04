@@ -1,4 +1,3 @@
-# the-road-0808-p
 
 #  I numberd the codes to connect to the other code.
 # so you can find 'js 72' at JS file if you see 'js 72' at CSS or HTML file. 
